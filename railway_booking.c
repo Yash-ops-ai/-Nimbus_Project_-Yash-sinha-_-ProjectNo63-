@@ -77,7 +77,77 @@ void displayMenu() {
 
 // TEMPLATE FUNCTIONS - WILL BE FILLED BY TEAM MEMBERS
 void manageTrains() {
-    printf("Train management - To be implemented by Member 1\n");
+    int choice;
+    do {
+        printf("\n=== TRAIN MANAGEMENT ===\n");
+        printf("1. Add New Train\n");
+        printf("2. View All Trains\n");
+        printf("3. Check Seat Availability\n");
+        printf("4. Back to Main Menu\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+        
+        switch(choice) {
+            case 1:
+                if(train_count < 10) {
+                    printf("Enter Train Number: ");
+                    scanf("%d", &trains[train_count].number);
+                    printf("Enter Train Name: ");
+                    scanf(" %[^\n]", trains[train_count].name);
+                    printf("Enter Source Station: ");
+                    scanf(" %[^\n]", trains[train_count].source);
+                    printf("Enter Destination Station: ");
+                    scanf(" %[^\n]", trains[train_count].destination);
+                    printf("Enter Total Seats: ");
+                    scanf("%d", &trains[train_count].total_seats);
+                    trains[train_count].available_seats = trains[train_count].total_seats;
+                    
+                    train_count++;
+                    printf("✅ Train added successfully!\n");
+                } else {
+                    printf("❌ Maximum train limit reached! Cannot add more trains.\n");
+                }
+                break;
+                
+            case 2:
+                if(train_count == 0) {
+                    printf("❌ No trains available! Please add trains first.\n");
+                } else {
+                    printf("\n=== ALL TRAINS ===\n");
+                    printf("Train No\tTrain Name\t\tSource\t\tDestination\tAvailable Seats\n");
+                    printf("------------------------------------------------------------------------\n");
+                    for(int i = 0; i < train_count; i++) {
+                        printf("%d\t\t%-15s\t%-10s\t%-12s\t%d/%d\n",
+                               trains[i].number,
+                               trains[i].name,
+                               trains[i].source,
+                               trains[i].destination,
+                               trains[i].available_seats,
+                               trains[i].total_seats);
+                    }
+                }
+                break;
+                
+            case 3:
+                if(train_count == 0) {
+                    printf("❌ No trains available!\n");
+                } else {
+                    printf("Available Trains:\n");
+                    for(int i = 0; i < train_count; i++) {
+                        printf("Train %d: %s - %d seats available\n", 
+                               trains[i].number, trains[i].name, trains[i].available_seats);
+                    }
+                }
+                break;
+                
+            case 4:
+                printf("Returning to main menu...\n");
+                break;
+                
+            default:
+                printf("❌ Invalid choice! Please try again.\n");
+        }
+    } while(choice != 4);
 }
 
 void bookTicket() {
