@@ -276,5 +276,40 @@ void saveData() {
 }
 
 void loadData() {
-    // Will be implemented later
+    FILE *file = fopen("railway_data.txt", "r");
+    if(file == NULL) {
+        printf("ℹ️  No previous data found. Starting fresh system.\n");
+        return;
+    }
+    
+    // Load basic counts and counters
+    fscanf(file, "%d %d %d", &train_count, &passenger_count, &pnr_counter);
+    
+    // Load all train data
+    for(int i = 0; i < train_count; i++) {
+        fscanf(file, "%d %s %s %s %d %d",
+               &trains[i].number,
+               trains[i].name,
+               trains[i].source,
+               trains[i].destination,
+               &trains[i].total_seats,
+               &trains[i].available_seats);
+    }
+    
+    // Load all passenger data
+    for(int i = 0; i < passenger_count; i++) {
+        fscanf(file, "%d %s %d %c %d %d %s %f",
+               &passengers[i].pnr,
+               passengers[i].name,
+               &passengers[i].age,
+               &passengers[i].gender,
+               &passengers[i].train_number,
+               &passengers[i].seat_number,
+               passengers[i].status,
+               &passengers[i].fare);
+    }
+    
+    fclose(file);
+    printf("✅ Previous data loaded successfully!\n");
+    printf("📊 Loaded: %d trains, %d passengers\n", train_count, passenger_count);
 }
