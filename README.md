@@ -5,7 +5,7 @@ A console-based railway ticket booking system developed in C programming languag
 
 ## Team Members
 - Member 1: [YASH SINHA] - Train Management & Project Setup
-- Member 2: [Name] - Ticket Booking System
+- Member 2: [shreya singh] - Ticket Booking System
 - Member 3: [Name] - Cancellation & Reports  
 - Member 4: [Name] - File Handling & Documentation
 
