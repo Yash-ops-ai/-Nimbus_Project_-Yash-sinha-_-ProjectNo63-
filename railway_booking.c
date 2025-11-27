@@ -151,7 +151,61 @@ void manageTrains() {
 }
 
 void bookTicket() {
-    printf("Ticket booking - To be implemented by Member 2\n");
+    if(passenger_count >= 100) {
+        printf("❌ No more tickets available! Maximum passenger limit reached.\n");
+        return;
+    }
+    
+    int train_no;
+    printf("Enter Train Number: ");
+    scanf("%d", &train_no);
+    
+    // Find the train
+    int train_index = -1;
+    for(int i = 0; i < train_count; i++) {
+        if(trains[i].number == train_no) {
+            train_index = i;
+            break;
+        }
+    }
+    
+    if(train_index == -1) {
+        printf("❌ Train not found! Please check train number.\n");
+        return;
+    }
+    
+    if(trains[train_index].available_seats <= 0) {
+        printf("❌ No seats available on this train!\n");
+        return;
+    }
+    
+    // Get passenger details
+    struct Passenger *p = &passengers[passenger_count];
+    p->pnr = pnr_counter++;
+    p->train_number = train_no;
+    
+    printf("Enter Passenger Name: ");
+    scanf(" %[^\n]", p->name);
+    printf("Enter Age: ");
+    scanf("%d", &p->age);
+    printf("Enter Gender (M/F): ");
+    scanf(" %c", &p->gender);
+    
+    // Allocate seat
+    p->seat_number = trains[train_index].total_seats - trains[train_index].available_seats + 1;
+    strcpy(p->status, "Confirmed");
+    p->fare = 500.0; // Fixed fare for now
+    
+    trains[train_index].available_seats--;
+    passenger_count++;
+    
+    printf("\n🎫 *** TICKET BOOKED SUCCESSFULLY! ***\n");
+    printf("📋 PNR Number: %d\n", p->pnr);
+    printf("👤 Passenger: %s\n", p->name);
+    printf("🚆 Train: %d - %s\n", p->train_number, trains[train_index].name);
+    printf("💺 Seat Number: %d\n", p->seat_number);
+    printf("💰 Fare: ₹%.2f\n", p->fare);
+    printf("✅ Status: %s\n", p->status);
 }
 
 void cancelTicket() {
