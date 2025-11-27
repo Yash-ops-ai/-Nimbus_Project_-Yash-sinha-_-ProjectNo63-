@@ -213,7 +213,62 @@ void cancelTicket() {
 }
 
 void showReports() {
-    printf("Reports - To be implemented by Member 4\n");
+    printf("\n=== SYSTEM REPORTS ===\n");
+    
+    if(passenger_count == 0 && train_count == 0) {
+        printf("❌ No data available for reports!\n");
+        return;
+    }
+    
+    // Calculate statistics
+    int confirmed_tickets = 0;
+    int cancelled_tickets = 0;
+    float total_revenue = 0.0;
+    float total_refunds = 0.0;
+    
+    for(int i = 0; i < passenger_count; i++) {
+        if(strcmp(passengers[i].status, "Confirmed") == 0) {
+            confirmed_tickets++;
+            total_revenue += passengers[i].fare;
+        } else if(strcmp(passengers[i].status, "Cancelled") == 0) {
+            cancelled_tickets++;
+            total_refunds += passengers[i].fare * 0.8; // 80% refund
+        }
+    }
+    
+    printf("📊 BOOKING STATISTICS:\n");
+    printf("────────────────────────\n");
+    printf("✅ Confirmed Tickets: %d\n", confirmed_tickets);
+    printf("❌ Cancelled Tickets: %d\n", cancelled_tickets);
+    printf("💰 Total Revenue: ₹%.2f\n", total_revenue);
+    printf("💸 Total Refunds Given: ₹%.2f\n", total_refunds);
+    printf("🎫 Net Revenue: ₹%.2f\n", total_revenue - total_refunds);
+    
+    printf("\n🚆 TRAIN WISE REPORT:\n");
+    printf("────────────────────────\n");
+    for(int i = 0; i < train_count; i++) {
+        int passengers_on_train = 0;
+        for(int j = 0; j < passenger_count; j++) {
+            if(passengers[j].train_number == trains[i].number && 
+               strcmp(passengers[j].status, "Confirmed") == 0) {
+                passengers_on_train++;
+            }
+        }
+        printf("Train %d: %s\n", trains[i].number, trains[i].name);
+        printf("   Route: %s to %s\n", trains[i].source, trains[i].destination);
+        printf("   Passengers: %d | Available Seats: %d/%d\n\n", 
+               passengers_on_train, trains[i].available_seats, trains[i].total_seats);
+    }
+    
+    printf("👥 PASSENGER DEMOGRAPHICS:\n");
+    printf("────────────────────────\n");
+    int male_count = 0, female_count = 0;
+    for(int i = 0; i < passenger_count; i++) {
+        if(passengers[i].gender == 'M' || passengers[i].gender == 'm') male_count++;
+        else if(passengers[i].gender == 'F' || passengers[i].gender == 'f') female_count++;
+    }
+    printf("Male Passengers: %d\n", male_count);
+    printf("Female Passengers: %d\n", female_count);
 }
 
 void saveData() {
