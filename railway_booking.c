@@ -318,7 +318,42 @@ void showReports() {
 }
 
 void saveData() {
-    printf("Data saving - To be implemented by Member 4\n");
+    FILE *file = fopen("railway_data.txt", "w");
+    if(file == NULL) {
+        printf("❌ Error: Cannot create data file!\n");
+        return;
+    }
+    
+    // Save basic counts and counters
+    fprintf(file, "%d %d %d\n", train_count, passenger_count, pnr_counter);
+    
+    // Save all trains data
+    for(int i = 0; i < train_count; i++) {
+        fprintf(file, "%d %s %s %s %d %d\n",
+                trains[i].number,
+                trains[i].name,
+                trains[i].source,
+                trains[i].destination,
+                trains[i].total_seats,
+                trains[i].available_seats);
+    }
+    
+    // Save all passengers data
+    for(int i = 0; i < passenger_count; i++) {
+        fprintf(file, "%d %s %d %c %d %d %s %.2f\n",
+                passengers[i].pnr,
+                passengers[i].name,
+                passengers[i].age,
+                passengers[i].gender,
+                passengers[i].train_number,
+                passengers[i].seat_number,
+                passengers[i].status,
+                passengers[i].fare);
+    }
+    
+    fclose(file);
+    printf("✅ All data saved successfully to railway_data.txt\n");
+    printf("💾 Saved: %d trains and %d passenger records\n", train_count, passenger_count);
 }
 
 void loadData() {
