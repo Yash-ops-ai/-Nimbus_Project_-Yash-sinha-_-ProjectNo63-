@@ -209,9 +209,55 @@ void bookTicket() {
 }
 
 void cancelTicket() {
-    printf("Ticket cancellation - To be implemented by Member 3\n");
+    if(passenger_count == 0) {
+        printf("❌ No tickets booked yet! Nothing to cancel.\n");
+        return;
+    }
+    
+    int pnr;
+    printf("Enter PNR Number to cancel: ");
+    scanf("%d", &pnr);
+    
+    int found = 0;
+    for(int i = 0; i < passenger_count; i++) {
+        if(passengers[i].pnr == pnr && strcmp(passengers[i].status, "Confirmed") == 0) {
+            // Find the train
+            int train_index = -1;
+            for(int j = 0; j < train_count; j++) {
+                if(trains[j].number == passengers[i].train_number) {
+                    train_index = j;
+                    break;
+                }
+            }
+            
+            if(train_index != -1) {
+                // Free the seat and update train
+                trains[train_index].available_seats++;
+                
+                // Calculate refund (80% refund policy)
+                float refund_amount = passengers[i].fare * 0.8;
+                float cancellation_charge = passengers[i].fare * 0.2;
+                
+                // Update passenger status
+                strcpy(passengers[i].status, "Cancelled");
+                
+                printf("\n✅ *** TICKET CANCELLED SUCCESSFULLY! ***\n");
+                printf("📋 PNR: %d\n", pnr);
+                printf("👤 Passenger: %s\n", passengers[i].name);
+                printf("🚆 Train: %d\n", passengers[i].train_number);
+                printf("💸 Refund Amount: ₹%.2f\n", refund_amount);
+                printf("💰 Cancellation Charge: ₹%.2f\n", cancellation_charge);
+                printf("📝 Status: %s\n", passengers[i].status);
+            }
+            found = 1;
+            break;
+        }
+    }
+    
+    if(!found) {
+        printf("❌ PNR not found or ticket already cancelled!\n");
+    }
 }
-
 void showReports() {
     printf("\n=== SYSTEM REPORTS ===\n");
     
