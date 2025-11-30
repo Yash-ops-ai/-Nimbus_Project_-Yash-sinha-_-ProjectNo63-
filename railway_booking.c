@@ -103,15 +103,15 @@ void manageTrains() {
                     trains[train_count].available_seats = trains[train_count].total_seats;
                     
                     train_count++;
-                    printf("✅ Train added successfully!\n");
+                    printf(" Train added successfully!\n");
                 } else {
-                    printf("❌ Maximum train limit reached! Cannot add more trains.\n");
+                    printf(" Maximum train limit reached! Cannot add more trains.\n");
                 }
                 break;
                 
             case 2:
                 if(train_count == 0) {
-                    printf("❌ No trains available! Please add trains first.\n");
+                    printf(" No trains available! Please add trains first.\n");
                 } else {
                     printf("\n=== ALL TRAINS ===\n");
                     printf("Train No\tTrain Name\t\tSource\t\tDestination\tAvailable Seats\n");
@@ -130,7 +130,7 @@ void manageTrains() {
                 
             case 3:
                 if(train_count == 0) {
-                    printf("❌ No trains available!\n");
+                    printf(" No trains available!\n");
                 } else {
                     printf("Available Trains:\n");
                     for(int i = 0; i < train_count; i++) {
@@ -145,14 +145,14 @@ void manageTrains() {
                 break;
                 
             default:
-                printf("❌ Invalid choice! Please try again.\n");
+                printf(" Invalid choice! Please try again.\n");
         }
     } while(choice != 4);
 }
 
 void bookTicket() {
     if(passenger_count >= 100) {
-        printf("❌ No more tickets available! Maximum passenger limit reached.\n");
+        printf(" No more tickets available! Maximum passenger limit reached.\n");
         return;
     }
     
@@ -170,12 +170,12 @@ void bookTicket() {
     }
     
     if(train_index == -1) {
-        printf("❌ Train not found! Please check train number.\n");
+        printf(" Train not found! Please check train number.\n");
         return;
     }
     
     if(trains[train_index].available_seats <= 0) {
-        printf("❌ No seats available on this train!\n");
+        printf(" No seats available on this train!\n");
         return;
     }
     
@@ -199,18 +199,18 @@ void bookTicket() {
     trains[train_index].available_seats--;
     passenger_count++;
     
-    printf("\n🎫 *** TICKET BOOKED SUCCESSFULLY! ***\n");
-    printf("📋 PNR Number: %d\n", p->pnr);
-    printf("👤 Passenger: %s\n", p->name);
-    printf("🚆 Train: %d - %s\n", p->train_number, trains[train_index].name);
-    printf("💺 Seat Number: %d\n", p->seat_number);
-    printf("💰 Fare: ₹%.2f\n", p->fare);
-    printf("✅ Status: %s\n", p->status);
+    printf("\n *** TICKET BOOKED SUCCESSFULLY! ***\n");
+    printf(" PNR Number: %d\n", p->pnr);
+    printf(" Passenger: %s\n", p->name);
+    printf(" Train: %d - %s\n", p->train_number, trains[train_index].name);
+    printf(" Seat Number: %d\n", p->seat_number);
+    printf(" Fare: ₹%.2f\n", p->fare);
+    printf(" Status: %s\n", p->status);
 }
 
 void cancelTicket() {
     if(passenger_count == 0) {
-        printf("❌ No tickets booked yet! Nothing to cancel.\n");
+        printf(" No tickets booked yet! Nothing to cancel.\n");
         return;
     }
     
@@ -241,13 +241,13 @@ void cancelTicket() {
                 // Update passenger status
                 strcpy(passengers[i].status, "Cancelled");
                 
-                printf("\n✅ *** TICKET CANCELLED SUCCESSFULLY! ***\n");
-                printf("📋 PNR: %d\n", pnr);
-                printf("👤 Passenger: %s\n", passengers[i].name);
-                printf("🚆 Train: %d\n", passengers[i].train_number);
-                printf("💸 Refund Amount: ₹%.2f\n", refund_amount);
-                printf("💰 Cancellation Charge: ₹%.2f\n", cancellation_charge);
-                printf("📝 Status: %s\n", passengers[i].status);
+                printf("\n *** TICKET CANCELLED SUCCESSFULLY! ***\n");
+                printf(" PNR: %d\n", pnr);
+                printf(" Passenger: %s\n", passengers[i].name);
+                printf(" Train: %d\n", passengers[i].train_number);
+                printf(" Refund Amount: ₹%.2f\n", refund_amount);
+                printf(" Cancellation Charge: ₹%.2f\n", cancellation_charge);
+                printf(" Status: %s\n", passengers[i].status);
             }
             found = 1;
             break;
@@ -255,14 +255,14 @@ void cancelTicket() {
     }
     
     if(!found) {
-        printf("❌ PNR not found or ticket already cancelled!\n");
+        printf(" PNR not found or ticket already cancelled!\n");
     }
 }
 void showReports() {
     printf("\n=== SYSTEM REPORTS ===\n");
     
     if(passenger_count == 0 && train_count == 0) {
-        printf("❌ No data available for reports!\n");
+        printf(" No data available for reports!\n");
         return;
     }
     
@@ -282,13 +282,13 @@ void showReports() {
         }
     }
     
-    printf("📊 BOOKING STATISTICS:\n");
+    printf(" BOOKING STATISTICS:\n");
     printf("────────────────────────\n");
-    printf("✅ Confirmed Tickets: %d\n", confirmed_tickets);
-    printf("❌ Cancelled Tickets: %d\n", cancelled_tickets);
-    printf("💰 Total Revenue: ₹%.2f\n", total_revenue);
-    printf("💸 Total Refunds Given: ₹%.2f\n", total_refunds);
-    printf("🎫 Net Revenue: ₹%.2f\n", total_revenue - total_refunds);
+    printf(" Confirmed Tickets: %d\n", confirmed_tickets);
+    printf(" Cancelled Tickets: %d\n", cancelled_tickets);
+    printf(" Total Revenue: ₹%.2f\n", total_revenue);
+    printf(" Total Refunds Given: ₹%.2f\n", total_refunds);
+    printf(" Net Revenue: ₹%.2f\n", total_revenue - total_refunds);
     
     printf("\n🚆 TRAIN WISE REPORT:\n");
     printf("────────────────────────\n");
@@ -320,7 +320,7 @@ void showReports() {
 void saveData() {
     FILE *file = fopen("railway_data.txt", "w");
     if(file == NULL) {
-        printf("❌ Error: Cannot create data file!\n");
+        printf(" Error: Cannot create data file!\n");
         return;
     }
     
@@ -352,8 +352,8 @@ void saveData() {
     }
     
     fclose(file);
-    printf("✅ All data saved successfully to railway_data.txt\n");
-    printf("💾 Saved: %d trains and %d passenger records\n", train_count, passenger_count);
+    printf(" All data saved successfully to railway_data.txt\n");
+    printf(" Saved: %d trains and %d passenger records\n", train_count, passenger_count);
 }
 
 void loadData() {
@@ -391,6 +391,6 @@ void loadData() {
     }
     
     fclose(file);
-    printf("✅ Previous data loaded successfully!\n");
-    printf("📊 Loaded: %d trains, %d passengers\n", train_count, passenger_count);
+    printf(" Previous data loaded successfully!\n");
+    printf(" Loaded: %d trains, %d passengers\n", train_count, passenger_count);
 }
