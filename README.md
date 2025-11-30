@@ -28,10 +28,12 @@ To develop a comprehensive railway ticket booking system in C programming langua
 - **Error Handling** - Comprehensive input validation
 
 ## 📸 Output Screenshots
-<img width="1483" height="869" alt="image" src="https://github.com/user-attachments/assets/4183b25f-96e8-4f75-a9de-857f1f663fd6" />
-<img width="1478" height="846" alt="image" src="https://github.com/user-attachments/assets/745353d5-75fe-47ed-96c1-594041317ce9" />
-<img width="1423" height="848" alt="image" src="https://github.com/user-attachments/assets/dec5436e-fe99-41ad-9361-b8fcf2ce2cd9" />
-<img width="1473" height="860" alt="image" src="https://github.com/user-attachments/assets/1becc603-08ec-404b-ae89-aeb4c1ed415e" />
+<img width="1469" height="852" alt="image" src="https://github.com/user-attachments/assets/fc04f08f-a858-4650-a536-071c10264dc8" />
+
+<img width="1484" height="859" alt="image" src="https://github.com/user-attachments/assets/ae85a92d-1e5f-4417-9f41-5d95d71066f4" />
+
+<img width="1449" height="855" alt="image" src="https://github.com/user-attachments/assets/28da976b-62d7-4470-8657-d0d87f6fe434" />
+
 
 
 
