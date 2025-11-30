@@ -1,55 +1,35 @@
 # 🚆 Railway Ticket Booking System - Project 63
 
-## 📋 Project Overview
-A comprehensive console-based railway reservation system developed in C programming language. This system simulates real-world railway operations including ticket booking, seat allocation, cancellations, and revenue management.
+## 🎯 Project Objective
+To develop a comprehensive railway ticket booking system in C programming language that demonstrates real-world operations including seat allocation, ticket management, cancellation systems, and data persistence using file handling.
 
 ## 👥 Team Members & Contributions
 | Name | Role | Modules Implemented |
 |------|------|---------------------|
-| **YASH SINHA** | Project Lead | Train Management, Reports System, Data Loading |
+| **YASH SINHA** | Project Lead | Train Management, Reports System, Data Loading, Documentation |
 | **SHREYA SINGH CHAUHAN** | Booking Specialist | Ticket Booking with Seat Allocation |
 | **VISHWAJEET KUMAR** | Operations Manager | Ticket Cancellation & Refund System |
 | **ARPIT AGARWAL** | Data Engineer | File Handling & Data Persistence |
 
-## 🚀 Features
-- ✅ **Train Management** - Add/view trains with routes and capacity
-- ✅ **Smart Booking** - Automatic seat allocation with PNR generation  
-- ✅ **Cancellation System** - Refund calculation with 80% refund policy
-- ✅ **Revenue Reports** - Real-time booking statistics and financial reports
-- ✅ **Data Persistence** - Save/load system using file handling
-- ✅ **Error Handling** - Comprehensive input validation
+## 🛠️ Development Steps
+1. **Project Setup** - GitHub repository creation and team collaboration setup
+2. **Basic Structure** - Main menu system and data structures implementation
+3. **Module Development** - Parallel development of all four modules by team members
+4. **Integration** - Combining all modules into unified system
+5. **Testing** - End-to-end workflow verification and bug fixing
+6. **Documentation** - README creation and final submission preparation
 
-## 🛠️ Technology Stack
-- **Language**: C Programming
-- **Data Structures**: Structs, Arrays, 2D Arrays
-- **File Operations**: Read/Write operations
-- **Development**: Nimbus Environment
-- **Version Control**: GitHub
+## 🚀 Features Implemented
+- **Train Management** - Add/view trains with capacity tracking
+- **Ticket Booking** - Automatic seat allocation with PNR generation
+- **Cancellation System** - Refund calculation (80% refund policy)
+- **Revenue Reports** - Real-time booking statistics and financial reports
+- **Data Persistence** - Save/load system using file I/O operations
+- **Error Handling** - Comprehensive input validation
 
-## 🎯 How to Run
-1. **Copy** the code from `railway_booking.c` into Nimbus
-2. **Compile** using C compiler in Nimbus
-3. **Execute** the program
-4. **Follow** the intuitive menu system
+## 📸 Output Screenshots
+<img width="1483" height="869" alt="image" src="https://github.com/user-attachments/assets/4183b25f-96e8-4f75-a9de-857f1f663fd6" />
+<img width="1483" height="869" alt="Screenshot 2025-11-30 190306" src="https://github.com/user-attachments/assets/d5175f0c-5fcb-4ea2-a043-70d9a563d6c9" />
 
-## 📊 Menu Options
-1. **Manage Trains** - Add new trains, view existing trains
-2. **Book Ticket** - Passenger registration with seat allocation  
-3. **Cancel Ticket** - Ticket cancellation with refund processing
-4. **Generate Reports** - Revenue and booking statistics
-5. **Save Data** - Persist all data to file
-6. **Exit** - Safe program termination
-
-## ✅ Testing Results
-- All modules integrated successfully
-- End-to-end workflow verified
-- Data persistence confirmed
-- Error handling validated
-
-## 📅 Project Timeline
-- **Start Date**: November 25, 2024
-- **Completion**: November 26, 2024  
-- **Submission**: November 30, 2024
-
----
-*Developed as part of Academic Curriculum - Project 63*
+ 
+### Main Menu
