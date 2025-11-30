@@ -29,7 +29,11 @@ To develop a comprehensive railway ticket booking system in C programming langua
 
 ## 📸 Output Screenshots
 <img width="1483" height="869" alt="image" src="https://github.com/user-attachments/assets/4183b25f-96e8-4f75-a9de-857f1f663fd6" />
-<img width="1483" height="869" alt="Screenshot 2025-11-30 190306" src="https://github.com/user-attachments/assets/d5175f0c-5fcb-4ea2-a043-70d9a563d6c9" />
+<img width="1478" height="846" alt="image" src="https://github.com/user-attachments/assets/745353d5-75fe-47ed-96c1-594041317ce9" />
+<img width="1423" height="848" alt="image" src="https://github.com/user-attachments/assets/dec5436e-fe99-41ad-9361-b8fcf2ce2cd9" />
+<img width="1473" height="860" alt="image" src="https://github.com/user-attachments/assets/1becc603-08ec-404b-ae89-aeb4c1ed415e" />
+
+
 
  
 ### Main Menu
